@@ -3,7 +3,9 @@
     const $copyLinkBtn = document.getElementById('copy-link-btn')
 
     if ($copyLinkBtn) {
-        $copyLinkBtn.addEventListener('click', () => {
+        $copyLinkBtn.addEventListener('click', (e) => {
+            e.preventDefault()
+
             $linkInput.focus()
             $linkInput.select()
 
