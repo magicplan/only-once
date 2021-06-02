@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    ::selection {
+        @apply bg-green-400;
+    }
+    @media (prefers-color-scheme: dark) {
+        ::selection {
+            @apply bg-green-600;
+        }
+    }
+}

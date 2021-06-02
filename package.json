@@ -1,0 +1,16 @@
+{
+  "name": "only-once",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "@tailwindcss/forms": "^0.3.2",
+    "autoprefixer": "^10.2.6",
+    "postcss": "^8.3.0",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.1.2"
+  },
+  "scripts": {
+    "dev": "NODE_ENV=development postcss frontend/css/app.css -o ./webroot/css/styles.css -w",
+    "build": "NODE_ENV=production postcss frontend/css/app.css -o ./webroot/css/styles.css"
+  }
+}
