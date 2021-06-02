@@ -127,6 +127,7 @@ return [
         ],
     ],
     'Session' => [
+        'cookie' => 'only-once',
         'defaults' => 'php',
     ],
 ];
