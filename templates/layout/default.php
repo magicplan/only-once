@@ -1,3 +1,6 @@
+<?php
+    $this->assign('title', 'Only Once');
+?>
 <!DOCTYPE html>
 <html class="h-full">
 <head>
