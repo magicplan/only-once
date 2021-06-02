@@ -86,7 +86,7 @@ return [
             'encoding' => 'utf8mb4',
             'flags' => [],
             'cacheMetadata' => true,
-            'log' => true,
+            'log' => false,
             'quoteIdentifiers' => true,
         ],
         'test' => [
