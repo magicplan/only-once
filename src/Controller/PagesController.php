@@ -31,7 +31,7 @@ class PagesController extends AppController
                 ->firstOrFail();
             $this->Secrets->delete($secret);
 
-            $entity->secret = Security::decrypt(stream_get_contents($secret->data), $cipher);
+            $entity->secret = Security::decrypt(base64_decode($secret->data), $cipher);
         }
 
         if ($this->request->is(['post', 'patch', 'put'])) {
@@ -42,7 +42,7 @@ class PagesController extends AppController
             if (!empty($secret)) {
                 $entity = $this->Secrets->patchEntity($entity, [
                     'key' => $key,
-                    'data' => Security::encrypt($secret, $cipher),
+                    'data' => base64_encode(Security::encrypt($secret, $cipher)),
                 ], [
                     'accessibleFields' => [
                         'key' => true,
