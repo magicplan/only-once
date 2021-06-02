@@ -4,8 +4,6 @@
 
     if ($copyLinkBtn) {
         $copyLinkBtn.addEventListener('click', (e) => {
-            e.preventDefault()
-
             $linkInput.focus()
             $linkInput.select()
 
