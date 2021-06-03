@@ -29,5 +29,7 @@ $routes->setRouteClass(DashedRoute::class);
 
 $routes->scope('/', function (RouteBuilder $builder) {
     $builder->connect('/', ['controller' => 'Pages', 'action' => 'index']);
+    $builder->connect('/message', ['controller' => 'Pages', 'action' => 'message']);
+
     $builder->fallbacks();
 });

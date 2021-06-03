@@ -4,11 +4,11 @@
 
 @layer base {
     ::selection {
-        @apply bg-green-400;
+        @apply bg-blue-400;
     }
     @media (prefers-color-scheme: dark) {
         ::selection {
-            @apply bg-green-600;
+            @apply bg-blue-600;
         }
     }
 }

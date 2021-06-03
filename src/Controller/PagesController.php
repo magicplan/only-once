@@ -20,20 +20,6 @@ class PagesController extends AppController
         $entity = $this->Secrets->newEmptyEntity();
         $link = null;
 
-        if ($this->request->is('get') && !empty($this->request->getQuery('key'))) {
-            $query = $this->request->getQuery('key');
-
-            $key = substr($query, 0, 32);
-            $cipher = substr($query, 32, 32);
-
-            $secret = $this->Secrets->find()
-                ->where(['key' => $key])
-                ->firstOrFail();
-            $this->Secrets->delete($secret);
-
-            $entity->secret = Security::decrypt(base64_decode($secret->data), $cipher);
-        }
-
         if ($this->request->is(['post', 'patch', 'put'])) {
             $key = Security::randomString(32);
             $cipher = Security::randomString(32);
@@ -51,7 +37,7 @@ class PagesController extends AppController
                 ]);
 
                 if ($this->Secrets->save($entity)) {
-                    $link = env('MAIN_DOAMIN') . '?key=' . $key . $cipher;
+                    $link = env('MAIN_DOAMIN') . 'message/?key=' . $key . $cipher;
                 } else {
                     $this->Flash->error('Something went wrong');
                 }
@@ -59,5 +45,32 @@ class PagesController extends AppController
         }
 
         $this->set(compact('entity', 'link'));
+    }
+
+    public function message()
+    {
+        $exists = false;
+        $message = false;
+
+        try {
+            $query = $this->request->getQuery('key');
+            $key = substr($query, 0, 32);
+            $cipher = substr($query, 32, 32);
+
+            $secretEntity = $this->Secrets->find()
+                ->where(['key' => $key])
+                ->firstOrFail();
+
+            $exists = true;
+        } catch (Throwable $t) {
+            // Do nothing
+        }
+
+        if ($this->request->is('post') && $this->request->getData('show') && $exists === true) {
+            $this->Secrets->delete($secretEntity);
+            $message = Security::decrypt(base64_decode($secretEntity->data), $cipher);
+        }
+
+        $this->set(compact('exists', 'message'));
     }
 }

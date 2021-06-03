@@ -122,7 +122,7 @@ class Application extends BaseApplication
             'form-action' => ['self' => true],
             'img-src' => ['self' => true],
             'script-src' => ['self' => true],
-            'style-src' => ['self' => true, 'unsafe-inline' => true],
+            'style-src' => ['self' => true],
             'object-src' => [],
             'plugin-types' => [],
         ]);

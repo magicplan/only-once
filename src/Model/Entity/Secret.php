@@ -16,7 +16,7 @@ use Cake\ORM\Entity;
 class Secret extends Entity
 {
 
-    const MAX_AGE = '180 days ago';
+    const MAX_AGE = '14 days ago';
 
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
