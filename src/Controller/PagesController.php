@@ -62,13 +62,13 @@ class PagesController extends AppController
                 ->firstOrFail();
 
             $exists = true;
+
+            if ($this->request->is('post') && $this->request->getData('show') && $exists === true) {
+                $this->Secrets->delete($secretEntity);
+                $message = Security::decrypt(base64_decode($secretEntity->data), $cipher);
+            }
         } catch (Throwable $t) {
             // Do nothing
-        }
-
-        if ($this->request->is('post') && $this->request->getData('show') && $exists === true) {
-            $this->Secrets->delete($secretEntity);
-            $message = Security::decrypt(base64_decode($secretEntity->data), $cipher);
         }
 
         $this->set(compact('exists', 'message'));
