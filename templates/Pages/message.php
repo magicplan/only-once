@@ -24,7 +24,7 @@
                         </div>
                         <div>
                             <a href="/" class="inline-flex justify-center py-2 px-4 border border-transparent text-md font-medium rounded-md text-white dark:text-black bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400 ring-offset-white dark:ring-offset-black">
-                                Cretae new link
+                                Create new link
                             </a>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                         </div>
                         <div>
                             <a href="/" class="inline-flex justify-center py-2 px-4 border border-transparent text-md font-medium rounded-md text-white dark:text-black bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400 ring-offset-white dark:ring-offset-black">
-                                Cretae new link
+                                Create new link
                             </a>
                         </div>
                     </div>
