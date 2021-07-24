@@ -66,6 +66,7 @@ class SecretsTable extends Table
 
         $validator
             ->requirePresence('data', 'create')
+            ->maxLength('data', 65535)
             ->notEmptyString('data');
 
         return $validator;
