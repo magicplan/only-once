@@ -6,11 +6,10 @@
                 <?= $this->Html->image('/img/logo-dark.svg', ['class' => 'w-48 hidden dark:block']) ?>
                 <?= $this->Html->image('/img/logo-light.svg', ['class' => 'w-48 block dark:hidden']) ?>
 
-                <?= $this->Flash->render(); ?>
-
                 <?= $this->Form->create($entity, ['class' => 'mt-12 space-y-4', 'novalidate']); ?>
+                    <?= $this->Flash->render(); ?>
                     <div>
-                        <?= $this->Form->label('secret', 'Your Secret', ['class' => 'mb-2 block text-xl font-medium text-black dark:text-white']); ?>
+                        <?= $this->Form->label('secret', 'Enter your secret message', ['class' => 'mb-2 block text-xl font-medium text-black dark:text-white']); ?>
                         <?= $this->Form->control('secret', [
                             'type' => 'textarea',
                             'label' => false,

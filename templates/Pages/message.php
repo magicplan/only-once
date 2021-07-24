@@ -12,7 +12,7 @@
 
                    <div class="mt-12 space-y-4">
                         <div>
-                            <?= $this->Form->label('message', 'Your Message', ['class' => 'mb-2 block text-xl font-medium text-black dark:text-white']); ?>
+                            <?= $this->Form->label('message', 'The secret message', ['class' => 'mb-2 block text-xl font-medium text-black dark:text-white']); ?>
                             <?= $this->Form->control('message', [
                                 'type' => 'textarea',
                                 'label' => false,
@@ -20,7 +20,7 @@
                                 'rows' => 8,
                                 'value' => $message,
                             ]); ?>
-                            <?= $this->Form->label('message', 'Do not refresh this page. Your message has been deleted already.', ['class' => 'block mt-1 text-xs text-gray-400']); ?>
+                            <?= $this->Form->label('message', 'Do not refresh this page. Your message has been already deleted.', ['class' => 'block mt-1 text-xs text-gray-400']); ?>
                         </div>
                         <div>
                             <a href="/" class="inline-flex justify-center py-2 px-4 border border-transparent text-md font-medium rounded-md text-white dark:text-black bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400 ring-offset-white dark:ring-offset-black">
@@ -38,11 +38,11 @@
                         ]); ?>
                         
                         <div>
-                            <div class="mb-8 text-2xl font-medium text-black dark:text-white">
-                                You can access the message now.
+                            <div class="mb-4 text-2xl font-medium text-black dark:text-white">
+                                You can access the secret message now
                             </div>
-                            <div class="text-lg text-black dark:text-white">
-                                The message will be deleted.
+                            <div class="mb-4 text-black dark:text-white">
+                                The message will be immediately deleted once you accessed it.
                             </div>
                         </div>
 
@@ -54,10 +54,10 @@
                 <?php else: ?>
                     <div class="mt-12 space-y-4">
                         <div>
-                            <div class="mb-8 text-2xl font-medium text-black dark:text-white">
-                                No message was found.
+                            <div class="mb-4 text-2xl font-medium text-black dark:text-white">
+                                No message was found
                             </div>
-                            <div class="text-lg text-black dark:text-white">
+                            <div class="mb-4 text-black dark:text-white">
                                 Their might not be such a key or someone else<br>
                                 already accessed the message.
                             </div>
