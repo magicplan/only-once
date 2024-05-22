@@ -80,7 +80,7 @@ class PagesController extends AppController
 
             $exists = true;
 
-            if ($this->request->is('post') && $this->request->getData('show') && $exists === true) {
+            if ($this->request->is('post') && $this->request->getData('show')) {
                 $this->Secrets->delete($secretEntity);
                 $message = Security::decrypt(base64_decode($secretEntity->data), $cipher);
             }
