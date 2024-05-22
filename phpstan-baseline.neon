@@ -1,0 +1,16 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method App\\\\Controller\\\\ErrorController\\:\\:afterFilter\\(\\) has parameter \\$event with generic interface Cake\\\\Event\\\\EventInterface but does not specify its types\\: TSubject$#"
+			count: 1
+			path: src/Controller/ErrorController.php
+
+		-
+			message: "#^Method App\\\\Controller\\\\ErrorController\\:\\:beforeFilter\\(\\) has parameter \\$event with generic interface Cake\\\\Event\\\\EventInterface but does not specify its types\\: TSubject$#"
+			count: 1
+			path: src/Controller/ErrorController.php
+
+		-
+			message: "#^Method App\\\\Controller\\\\ErrorController\\:\\:beforeRender\\(\\) has parameter \\$event with generic interface Cake\\\\Event\\\\EventInterface but does not specify its types\\: TSubject$#"
+			count: 1
+			path: src/Controller/ErrorController.php
