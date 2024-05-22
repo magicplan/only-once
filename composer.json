@@ -16,7 +16,8 @@
         "cakephp/bake": "^2.6",
         "cakephp/cakephp-codesniffer": "^4.5",
         "cakephp/debug_kit": "^4.5",
-        "phpunit/phpunit": "~8.5.0 || ^9.3"
+        "phpunit/phpunit": "~8.5.0 || ^9.3",
+        "phpstan/phpstan": "^1.11"
     },
     "autoload": {
         "psr-4": {
@@ -35,6 +36,10 @@
         "check": [
             "@test",
             "@cs-check"
+        ],
+        "sca": [
+            "@cs-check",
+            "@stan"
         ],
         "cs-check": "phpcs --colors -p  src/ tests/",
         "cs-fix": "phpcbf --colors -p src/ tests/",

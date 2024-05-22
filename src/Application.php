@@ -115,7 +115,10 @@ class Application extends BaseApplication
         // Load more plugins here
     }
 
-    protected function getCspPolicy()
+    /**
+     * @return \ParagonIE\CSPBuilder\CSPBuilder
+     */
+    protected function getCspPolicy(): CSPBuilder
     {
         $csp = new CSPBuilder([
             'font-src' => ['self' => true],

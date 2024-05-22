@@ -1,21 +1,31 @@
 <?php
 declare(strict_types=1);
+
 namespace App\Controller;
 
+use Cake\Http\Exception\BadRequestException;
 use Cake\Utility\Security;
 use Throwable;
 
+/**
+ * @property \Cake\ORM\Table|\App\Model\Table\SecretsTable $Secrets
+ */
 class PagesController extends AppController
 {
-
+    /**
+     * @return void
+     */
     public function initialize(): void
     {
         parent::initialize();
 
-        $this->loadModel('Secrets');
+        $this->Secrets = $this->getTableLocator()->get('Secrets');
     }
 
-    public function index()
+    /**
+     * @return void
+     */
+    public function index(): void
     {
         $entity = $this->Secrets->newEmptyEntity();
         $link = null;
@@ -47,16 +57,23 @@ class PagesController extends AppController
         $this->set(compact('entity', 'link'));
     }
 
-    public function message()
+    /**
+     * @return void
+     */
+    public function message(): void
     {
         $exists = false;
         $message = false;
 
         try {
             $query = $this->request->getQuery('key');
+            if (empty($query) || \is_array($query)) {
+                throw new BadRequestException();
+            }
             $key = substr($query, 0, 32);
             $cipher = substr($query, 32, 32);
 
+            /** @var \App\Model\Entity\Secret $secretEntity */
             $secretEntity = $this->Secrets->find()
                 ->where(['key' => $key])
                 ->firstOrFail();

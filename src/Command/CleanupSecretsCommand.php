@@ -16,7 +16,6 @@ use Cake\I18n\FrozenTime;
  */
 class CleanupSecretsCommand extends Command
 {
-
     use ModelAwareTrait;
 
     /**
@@ -42,15 +41,14 @@ class CleanupSecretsCommand extends Command
      */
     public function execute(Arguments $args, ConsoleIo $io)
     {
-        $this->loadModel('Secrets');
-        $secrets = $this->Secrets->find()
+        $SecretsTable = $this->getTableLocator()->get('Secrets');
+        $secrets = $SecretsTable->find()
             ->all();
 
         foreach ($secrets as $secret) {
             if ($secret->created <= new FrozenTime(Secret::MAX_AGE)) {
-                $this->Secrets->delete($secret);
+                $SecretsTable->delete($secret);
             }
         }
-
     }
 }
